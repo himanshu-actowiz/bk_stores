@@ -2,12 +2,13 @@ from lxml import html
 from utils import read_htmlFile
 from db_config import create_table , insert_into_db
 
+#html file path
 base_path = r'C:\Users\hemanshu.marwadi\Desktop\Himanshu Marwadi\x-path\bk_store\bk_store.html'
-TABLE_NAME = 'burger_king_stores'
+TABLE_NAME = 'burger_king_stores' #table name from store data in database
 
 def parsel(html_data):
     burger_king = []
-    tree = html.fromstring(html_data)
+    tree = html.fromstring(html_data) #html data convert a fromstring ( tree format )
     store_info = tree.xpath('//div[@class = "store-info-box"]')
     for information in store_info:
         bk_stores = {}
@@ -27,11 +28,11 @@ def parsel(html_data):
     
 
 def main():
-    create_table(table_name=TABLE_NAME)
-    raw = read_htmlFile(base_path)
-    pars_data = parsel(raw)
+    create_table(table_name=TABLE_NAME) #table create
+    raw = read_htmlFile(base_path) #read raw data
+    pars_data = parsel(raw) # Extract data from raw formate
     for row in pars_data:
-        insert_into_db(table_name=TABLE_NAME, data=row)
+        insert_into_db(table_name=TABLE_NAME, data=row) #insert data in database
     
     
 if __name__ == '__main__':
