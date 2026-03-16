@@ -12,6 +12,8 @@ def parsel(html_data):
     store_info = tree.xpath('//div[@class = "store-info-box"]')
     for information in store_info:
         bk_stores = {}
+        onclick = information.xpath('normalize-space(.//li[@class="outlet-phone"]//a/@onclick)')
+        bk_stores['store_id'] = onclick.split(",")[-1].replace("'", "").replace(")", "").strip()
         bk_stores['brand_name'] = information.xpath('normalize-space(string(.//li[@class = "outlet-name"]//a))')
         bk_stores['address'] = information.xpath('normalize-space(string(.//li[@class = "outlet-address"]//span/text()))')
         bk_stores['locality'] = information.xpath('normalize-space(string(.//div[@class="info-text"]//span[2]))')

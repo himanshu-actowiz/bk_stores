@@ -15,6 +15,7 @@ def create_table(table_name: str):
     create_query = f'''
     CREATE TABLE IF NOT EXISTS {table_name}(
         id INT AUTO_INCREMENT PRIMARY KEY,
+        store_id VARCHAR(200),
         brand_name VARCHAR(200),
         address TEXT,
         locality VARCHAR(200),
