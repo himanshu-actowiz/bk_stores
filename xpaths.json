@@ -1,0 +1,13 @@
+{
+    "store_info": "//div[@class='store-info-box']",
+    "onclick": "normalize-space(.//li[@class='outlet-phone']//a/@onclick)",
+    "brand_name": "normalize-space(string(.//li[@class='outlet-name']//a))",
+    "address": "normalize-space(string(.//li[@class='outlet-address']//span/text()))",
+    "locality": "normalize-space(string(.//div[@class='info-text']//span[2]))",
+    "city": "normalize-space(string(.//span[@class='merge-in-next']/span[1]))",
+    "pincode": "normalize-space(.//span[@class='merge-in-next']//span[3])",
+    "phone_number": "normalize-space(.//li[@class='outlet-phone']//a)",
+    "timing": "normalize-space(.//li[@class='outlet-timings']//div[@class='info-text']//span)",
+    "store_url": "normalize-space(.//a[@class='btn btn-website']/@href)",
+    "map_url": "normalize-space(.//a[@class='btn btn-map']/@href)"
+}
